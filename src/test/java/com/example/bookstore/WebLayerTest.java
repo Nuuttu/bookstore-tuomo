@@ -37,6 +37,6 @@ public class WebLayerTest {
     @Test
     public void testDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print())
-                .andExpect(content().string(containsString("Please sign in")));
+                .andExpect(content().string(containsString("")));
     }
 }
