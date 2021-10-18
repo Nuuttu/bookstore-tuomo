@@ -31,11 +31,31 @@ public class BookstoreApplication {
 			//catrepo.save(new Category("Thriller"));
 			//catrepo.save(new Category("Fantasy"));
 			//catrepo.save(new Category("Scifi"));
+			if (catrepo.findByName("Thriller") == null ) {
+				catrepo.save(new Category("Thriller"));
+			}
+			if (catrepo.findByName("Fantasy") == null ) {
+				catrepo.save(new Category("Fantasy"));
+			}
+			if (catrepo.findByName("Scifi") == null ) {
+				catrepo.save(new Category("Scifi"));
+			}
 			
-			//bookrepo.save(new Book("Book2", "Kateson", 1992, 29299292, 20.2, catrepo.findByName("Thriller").get(0)));
-			//bookrepo.save(new Book("Book1", "Johnson", 1990, 1293129393, 20.1, catrepo.findByName("Scifi").get(0)));
-			
+			if (bookrepo.findByTitle("Book2") == null ) {
+				bookrepo.save(new Book("Book2", "Kateson", 1992, 29299292, 20.2, catrepo.findByName("Thriller").get(0)));
+			}
+			if (bookrepo.findByTitle("Book1") == null ) {
+				bookrepo.save(new Book("Book1", "Johnson", 1990, 1293129393, 20.1, catrepo.findByName("Scifi").get(0)));
+			}
       			// Create users: admin/admin user/user
+			if (urepository.findByUsername("user") == null) {
+				User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+				urepository.save(user1);
+			}
+			if (urepository.findByUsername("admin") == null) {
+				User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+				urepository.save(user2);
+			}
 			//User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			//User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			//urepository.save(user1);
